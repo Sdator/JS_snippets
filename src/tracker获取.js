@@ -37,7 +37,7 @@ class CL {
     // exec("clip").stdin.end(iconv.encode(成品磁链, "gbk"));
     // 复制到粘贴板
     // exec("clip").stdin.end(成品磁链);
-    // console.log(成品磁链);
+    console.log(成品磁链);
   }
 }
 
