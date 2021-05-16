@@ -29,17 +29,15 @@ class CL {
     const feed = await parser.parseString(data);
 
     const 最新博文 = feed.items;
-    const isTrue = /活动|大促|促销|限时|力度|攻略/.test(最新博文);
+    // const isTrue = /活动|大促|促销|限时|力度|攻略/.test(最新博文);
 
     for (const v of 最新博文) {
       if (/活动|大促|促销|限时|力度|攻略/.test(v.content)) {
-        console.log(v.pubDate, v.content);
+        console.log(v.pubDate, v.link, v.content);
       }
     }
 
-    console.log(最新博文);
-
-    // data = data.match(/(http|udp).+/g);
+    // console.log(最新博文);
   }
 }
 
