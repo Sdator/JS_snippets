@@ -1,6 +1,15 @@
-import fetch from "node-fetch";
-import HttpsProxyAgent from "https-proxy-agent";
-import WEB from "../lib/WEB.js";
+const fetch = require("node-fetch");
+const HttpsProxyAgent = require("https-proxy-agent");
+const WEB = require("../lib/WEB.js");
+const util = require("util");
+const exec = util.promisify(require("child_process").exec);
+// const { exec } = require("child_process");
+const iconv = require("iconv-lite");
+
+// import fetch from "node-fetch";
+// import HttpsProxyAgent from "https-proxy-agent";
+// import WEB from "../lib/WEB.js";
+// import { exec } from "child_process";
 
 // 立即执行类
 class Nadd extends WEB {
@@ -34,6 +43,7 @@ class Nadd extends WEB {
   }
 
   // plugin.php?H_name=tasks&action=ajax&actions=job&cid='+id,
+  // 完成任务startjob('15');
   static async 任务(任务id, 操作类型) {
     const data = {
       H_name: "tasks",
@@ -49,7 +59,7 @@ class Nadd extends WEB {
       url.searchParams.append(...v);
     }
     const res = await fetch(url, {
-      // agent: new HttpsProxyAgent("http://" + this.ip + ":" + this.port), // 使用代理
+      agent: new HttpsProxyAgent("http://" + this.ip + ":" + this.port), // 使用代理
       headers: {
         Cookie: "",
       },
@@ -58,6 +68,22 @@ class Nadd extends WEB {
     return await res.text();
   }
 }
+
+// console.log(navigator.userAgent);
+
+async function 获取chrome版本() {
+  const com = String.raw`wmic datafile where name="C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" get Version /value`;
+  // 使用 { encoding: "buffer" } 解决乱码问题
+  const { stdout, stderr } = await exec(com, { encoding: "buffer" });
+
+  // console.log(iconv.decode(stdout, "cp936"));
+
+  // console.log(stderr);
+}
+
+获取chrome版本();
+
+// console.log(exec("dir"));
 
 // (async () => {
 //   const 操作类型 = {

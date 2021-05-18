@@ -5,18 +5,18 @@
 
 
 参考：
-https://stackoverflow.com/questions/19025718/which-file-does-snippets-of-chrome-dev-tool-saved-at
-https://github.com/bgrins/devtools-snippets/issues/28
-https://github.com/bgrins/devtools-snippets/pull/35
-https://www.jianshu.com/p/b2de794eb359
+  https://stackoverflow.com/questions/19025718/which-file-does-snippets-of-chrome-dev-tool-saved-at
+  https://github.com/bgrins/devtools-snippets/issues/28
+  https://github.com/bgrins/devtools-snippets/pull/35
+  https://www.jianshu.com/p/b2de794eb359
 */
 
 // import jq from "node-jq";
 import fs from "fs";
 import path from "path";
-
+// 数据路径
 const jsonPath = String.raw`D:\DATA\Chrome\User Data\Default\Preferences`;
-
+// 读入文件并序列化
 const json = JSON.parse(fs.readFileSync(jsonPath));
 
 const obj = JSON.parse(json.devtools.preferences.scriptSnippets);

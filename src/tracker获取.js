@@ -1,6 +1,6 @@
 // const fetch = require("node-fetch");
 // const { exec } = require("child_process");
-// // const iconv = require("iconv-lite");
+// const iconv = require("iconv-lite");
 // const HttpsProxyAgent = require("https-proxy-agent");
 
 import fetch from "node-fetch";
@@ -14,7 +14,7 @@ class CL {
   magnet = "";
 
   constructor(magnet) {
-    this.magnet = magnet;
+    this.magnet = magnet.trim();
     this.clink(magnet);
   }
 
@@ -35,14 +35,19 @@ class CL {
     trackers = trackers.slice(0, -1);
     const 成品磁链 = this.magnet + "&" + trackers.slice(0, -1);
     // exec("clip").stdin.end(iconv.encode(成品磁链, "gbk"));
+
     // 复制到粘贴板
-    // exec("clip").stdin.end(成品磁链);
-    // console.log(成品磁链);
+    exec("clip").stdin.end(成品磁链);
+    console.log("完成");
+  }
+  toString() {
+    return 123;
   }
 }
 
-const cl = new CL(
-  "magnet:?xt=urn:btih:0f35d66c37817ea24c18a892b68854cd0201228b&dn=Kamen%20Rider%20Kuuga%20%281-49%29"
-);
+const cl = new CL(`
 
-console.log(cl);
+magnet:?xt=urn:btih:3E1118936EFD2799186350229CABB6A7FDE4E391
+
+
+`);
