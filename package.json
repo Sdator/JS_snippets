@@ -2,6 +2,7 @@
   "name": "snippets",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "git@github.com:Sdator/JS_snippets.git",
   "author": "Sdator <250740270@qq.com>",
   "license": "MIT",
@@ -9,10 +10,14 @@
     "jq": ".\\node_modules\\node-jq\\bin\\jq.exe"
   },
   "dependencies": {
+    "adm-zip": "^0.5.5",
+    "adm-zip-iconv": "^0.4.9",
+    "express": "^4.17.1",
     "http-proxy-agent": "^4.0.1",
     "https-proxy-agent": "^5.0.0",
     "iconv-lite": "^0.6.2",
     "node-fetch": "^2.6.1",
-    "node-jq": "^1.12.0"
+    "node-jq": "^1.12.0",
+    "request": "^2.88.2"
   }
 }
