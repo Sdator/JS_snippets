@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.json": "jsonc",
+        "*.sample": "shellscript",
+        "ostream": "cpp"
+    }
+}
