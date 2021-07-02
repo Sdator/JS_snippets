@@ -5,6 +5,8 @@ const getCV = (CV) => CV.match(/pt_pin=.+?;/) + CV.match(/pt_key=.+?;/);
 const CV = `
 
 
+
+
 `;
 
 const CookieValue = getCV(CV);
