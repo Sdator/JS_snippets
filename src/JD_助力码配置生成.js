@@ -30,4 +30,13 @@ function zlmBuild(str, title = [1, 2, 3, 4, 5, "A", "B"]) {
   for (const v of str) {
     console.log(v);
   }
-})("MyJxnc2");
+})("MyBookShop6");
+
+const str = `
+MyCarni1
+MyHealthA
+MyCity5
+MyCfd1
+MySgmh4
+MyBookShop6
+`;
