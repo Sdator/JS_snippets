@@ -6,8 +6,8 @@
 // @version             1.0
 // @match               *://*/*
 // @description         修改域名并跳转
-// @updateURL           https://github.com/Sdator/JS_snippets/raw/master/src/地址替换.user.js.user.js
-// @downloadURL         https://github.com/Sdator/JS_snippets/raw/master/src/地址替换.user.js.user.js
+// @updateURL           https://github.com/Sdator/JS_snippets/raw/master/src/地址替换.user.js
+// @downloadURL         https://github.com/Sdator/JS_snippets/raw/master/src/地址替换.user.js
 // @grant               none
 // ==/UserScript==
 
