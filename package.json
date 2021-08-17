@@ -7,7 +7,8 @@
   "author": "Sdator <250740270@qq.com>",
   "license": "MIT",
   "scripts": {
-    "jq": ".\\node_modules\\node-jq\\bin\\jq.exe"
+    "unbuild": "rm -rf node_modules || rd /s /q node_modules",
+    "build": "npm run unbuild && npm install"
   },
   "dependencies": {
     "adm-zip": "^0.5.5",
@@ -17,7 +18,6 @@
     "https-proxy-agent": "^5.0.0",
     "iconv-lite": "^0.6.2",
     "node-fetch": "^2.6.1",
-    "node-jq": "^1.12.0",
     "request": "^2.88.2"
   }
 }
