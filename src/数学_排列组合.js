@@ -1,27 +1,49 @@
-// 阶乘
-function 排列(num) {
-  let tmp = 1;
-  for (let index = 1; index <= num; index++) {
-    tmp *= index;
+// 0!=1，n!=(n-1)!×n
+
+const 阶乘 = (len) => (len <= 1 ? 1 : len * 阶乘(len - 1));
+
+const 全排列 = 阶乘;
+
+const 递归_排列 = (min, max) => {
+  const end = max - (min - 1);
+  const 排 = (min, num) => {
+    return num < end ? end : num * 排(min, num - 1);
+  };
+  return 排(min, max);
+};
+
+const For_排列 = (min, max) => {
+  const end = max - (min - 1);
+  let num = 1;
+  for (let i = max; i >= end; i--) {
+    num *= i;
+    console.log(num, i, max);
   }
-  return tmp;
-}
+  return num;
+};
 
-// 阶乘
-function factorial(n, total = 1) {
-  console.log("factorial", n - 1, n * total, n, total);
-  if (n === 1) return total;
-  return factorial(n - 1, n * total);
-}
+//
+const 部分排列 = (min, max) => 全排列(max) / 全排列(max - min);
 
-function 组合(max, num) {
-  return 排列(max) / (排列(max - num) * 排列(num));
-}
+const 排列 = 部分排列;
 
-const a = 组合(36, 7);
-console.log(a);
+// a/(b*c) = a/b/c
+const 组合 = (min, max) => {
+  return 排列(min, max) / 全排列(min);
+};
 
-// C26 = A6 / (A(6 - 2) * A2)
-// =6 * 5 / 2 * 1
-// =30 / 2
-// =15
+console.log(排列(4, 8));
+console.log(组合(4, 8));
+
+const 取倍数 = (num, b) => num * b;
+const 取因数 = (num) => {
+  let arr = [];
+  for (let index = 1; index <= num; index++) {
+    let res = num % index;
+    if (!res) {
+      arr.push(index);
+    }
+  }
+  return arr;
+};
+let a = 取因数(43);
